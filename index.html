@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi" class="keep-boot"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#000000">
+<title>Shader Mod · Tun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Unbounded:wght@500;600;700&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="phone" id="app">
+  <div class="island" aria-hidden="true"></div>
+  <div class="status">
+    <span id="clock">9:41</span>
+    <div class="status-right" aria-hidden="true">
+      <span class="sig"><i></i><i></i><i></i><i></i></span>
+      <span class="batt"></span>
+    </div>
+  </div>
+
+  <div class="stage">
+    <section class="screen main is-on" id="main">
+      <div class="main-head">
+        <div>
+          <p class="kicker" id="kicker">Bundle</p>
+          <h2 id="hello">Shader Mod</h2>
+        </div>
+        <span class="pill"><i></i>Ready</span>
+      </div>
+      <div class="page">
+        <div class="tab-page is-on" data-page="exploit">
+          <div class="stage-card">
+            <div class="stage-meta"><span>UnityFS</span><span>Bundle</span></div>
+            <h3>Can thiệp file game</h3>
+            <p>Nạp file bundle shader gốc để bật định vị súng (X-Ray) hoặc định vị nhân vật (hologram) xuyên tường. Dung lượng file giữ nguyên 100%.</p>
+          </div>
+
+          <p class="label">Nạp file gốc</p>
+          <label class="file-btn" id="drop" for="file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"></path></svg>
+            <span class="meta">
+              <b id="file-name">Chọn file bundle</b>
+              <small>shaders · optionalavatarres_commonab_shader</small>
+            </span>
+          </label>
+          <input type="file" id="file" hidden="">
+
+          <div id="info"></div>
+
+          <p class="label">Chức năng định vị</p>
+          <div class="chips" id="presets">
+            <label class="chip pre preset-btn is-off" data-preset="3">
+              <input type="radio" name="p" value="3">
+              <span class="box"></span>Định vị súng
+            </label>
+            <label class="chip pre preset-btn is-off" data-preset="4">
+              <input type="radio" name="p" value="4">
+              <span class="box"></span>Định vị nhân vật
+            </label>
+          </div>
+
+          <div class="preset-opts" data-preset-opts="3" style="display:none">
+            <p class="label" style="margin-top:0">Màu định vị súng</p>
+            <div class="color-grid">
+              <div class="color-item"><label>Màu súng</label><input type="color" id="cXray" value="#111111"></div>
+              <div class="color-item"><label>Viền</label><input type="color" id="cLine" value="#ffffff"></div>
+              <div class="color-item"><label>Keo</label><input type="color" id="cDim" value="#111111"></div>
+            </div>
+            <div class="range-item">
+              <label>Độ dày viền: <b id="wVal">4.0</b></label>
+              <input type="range" id="rWidth" min="0" max="20" step="0.5" value="4">
+            </div>
+            <div class="range-item">
+              <label>Alpha: <b id="aVal">1.00</b></label>
+              <input type="range" id="rAlpha" min="0" max="1" step="0.05" value="1">
+            </div>
+          </div>
+
+          <div class="preset-opts" data-preset-opts="4" style="display:none">
+            <p class="label" style="margin-top:0">Màu định vị nhân vật</p>
+            <div class="color-grid">
+              <div class="color-item"><label>Màu chính</label><input type="color" id="cTint" value="#00ffff"></div>
+              <div class="color-item"><label>Sáng mép</label><input type="color" id="cRim" value="#00ffff"></div>
+              <div class="color-item"><label>Quét</label><input type="color" id="cScan" value="#000000"></div>
+            </div>
+            <div class="fxrow">
+              <label class="chk"><input type="checkbox" id="kXray" checked=""><span>Xuyên tường</span></label>
+              <label class="chk"><input type="checkbox" id="kLine"><span>Đường quét</span></label>
+              <label class="chk"><input type="checkbox" id="kGlitch"><span>Nhiễu</span></label>
+            </div>
+          </div>
+
+          <button type="button" class="page-inject" id="go" disabled=""><span>Tạo file</span></button>
+          <div id="out"></div>
+        </div>
+
+        <div class="tab-page" data-page="author">
+          <div class="stage-card">
+            <div class="stage-meta"><span>Tác giả</span><span>Shader Mod</span></div>
+            <h3>Tun</h3>
+            <p>Công cụ can thiệp shader bundle UnityFS cho Free Fire / FF Max. Hỗ trợ định vị súng (X-Ray) và định vị nhân vật (hologram) với chỉnh màu tuỳ ý.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <nav class="dock" id="dock" data-on="exploit">
+    <div class="dock-inner">
+      <span class="dock-thumb"></span>
+      <button type="button" class="is-on" data-tab="exploit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-7H10v7H5a1 1 0 0 1-1-1v-9.5Z"></path></svg>
+        Home
+      </button>
+      <button type="button" data-tab="author">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c1.5-4 4.5-6 7-6s5.5 2 7 6"></path></svg>
+        Tác giả
+      </button>
+    </div>
+  </nav>
+
+  <div class="toast" id="toast" role="status"></div>
+</div>
+
+
+
+<script src="script.js" defer=""></script></body></html>
